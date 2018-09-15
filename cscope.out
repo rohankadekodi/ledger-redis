@@ -1,4 +1,4 @@
-cscope 15 $HOME/projects/redis-4.0.10               0003505988
+cscope 15 $HOME/projects/redis-4.0.10               0003505780
 	@deps/hiredis/adapters/ae.h
 
 31 #i‚de‡
@@ -314921,7 +314921,7 @@ tmpfûe
 	`f›í
 (
 tmpfûe
-,"w+");
+,"w");
 
 1202 i‡(!
 Â
@@ -314940,16 +314940,6 @@ LL_WARNING
 1204  
 C_ERR
 ;
-
-1207 
-	`¥ötf
-("%s: o≥√d fûêwôh fd = %d\n", 
-__func__
-, 
-	`fûío
-(
-Â
-));
 
 1208 
 £rvî
@@ -315027,13 +315017,15 @@ wîr
 
 1226 
 	`¥ötf
-("%s: doög fÊushánd fsyn¯⁄ fd = %d\n", 
+("%s: doög fÊushánd fsyn¯⁄ fd = %d,Öid = %lu\n", 
 __func__
 , 
 	`fûío
 (
 Â
-));
+), 
+	`gëpid
+());
 
 1227 i‡(
 	`fÊush
@@ -315054,16 +315046,6 @@ wîr
 )Ë=-1Ë
 wîr
 ;
-
-1229 
-	`¥ötf
-("%s: did fsyn¯⁄ fd = %d\n", 
-__func__
-, 
-	`fûío
-(
-Â
-));
 
 1237 
 nod©a
@@ -315107,16 +315089,6 @@ nod©a
 	`aofRódDiffFromP¨ít
 ();
 
-1251 
-	`¥ötf
-("%s:áskög ma°îÅÿ°› sídög diffs. fd = %d\n", 
-__func__
-, 
-£rvî
-.
-aof_pùe_wrôe_ack_to_∑ª¡
-);
-
 1252 i‡(
 	`wrôe
 (
@@ -315126,12 +315098,6 @@ aof_pùe_wrôe_ack_to_∑ª¡
 ,"!",1Ë!1Ë
 wîr
 ;
-
-1253 
-	`¥ötf
-("%s:ásked ma°î suc˚ssfuŒy\n", 
-__func__
-);
 
 1254 i‡(
 	`™ëN⁄Block
@@ -315691,25 +315657,33 @@ C_ERR
 	`u°ime
 ();
 
-1393 i‡((
+1393 
+	`¥ötf
+("%s: cÆlög f‹k wôhÖid = %lu\n", 
+__func__
+, 
+	`gëpid
+());
+
+1394 i‡((
 chûdpid
  = 
 	`f‹k
 ()) == 0) {
 
-1394 
+1395 
 tmpfûe
 [256];
 
-1397 
+1398 
 	`˛o£Li°íögSockës
 (0);
 
-1398 
+1399 
 	`ªdisSëProcTôÀ
 ("redis-aof-rewrite");
 
-1399 
+1400 
 	`¢¥ötf
 (
 tmpfûe
@@ -315717,7 +315691,7 @@ tmpfûe
 	`gëpid
 ());
 
-1400 i‡(
+1401 i‡(
 	`ªwrôeAµídO∆yFûe
 (
 tmpfûe
@@ -315725,7 +315699,7 @@ tmpfûe
 C_OK
 ) {
 
-1401 
+1402 
 size_t
  
 ¥iv©e_dúty
@@ -315733,21 +315707,21 @@ size_t
 	`zmÆloc_gë_¥iv©e_dúty
 (-1);
 
-1403 i‡(
+1404 i‡(
 ¥iv©e_dúty
 ) {
 
-1404 
+1405 
 	`£rvîLog
 (
 LL_NOTICE
 ,
 
-1406 
+1407 
 ¥iv©e_dúty
 /(1024*1024));
 
-1409 
+1410 
 £rvî
 .
 chûd_öfo_d©a
@@ -315757,21 +315731,21 @@ cow_size
 ¥iv©e_dúty
 ;
 
-1410 
+1411 
 	`£ndChûdInfo
 (
 CHILD_INFO_TYPE_AOF
 );
 
-1411 
+1412 
 	`exôFromChûd
 (0);
 
-1413 
+1414 
 	`exôFromChûd
 (1);
 
-1417 
+1418 
 £rvî
 .
 °©_f‹k_time
@@ -315781,7 +315755,7 @@ CHILD_INFO_TYPE_AOF
 °¨t
 ;
 
-1418 
+1419 
 £rvî
 .
 °©_f‹k_øã
@@ -315791,7 +315765,7 @@ CHILD_INFO_TYPE_AOF
 °©_f‹k_time
  / (1024*1024*1024);
 
-1419 
+1420 
 	`œãncyAddSam∂eIfNìded
 ("f‹k",
 £rvî
@@ -315799,51 +315773,51 @@ CHILD_INFO_TYPE_AOF
 °©_f‹k_time
 /1000);
 
-1420 i‡(
+1421 i‡(
 chûdpid
  == -1) {
 
-1421 
+1422 
 	`˛o£ChûdInfoPùe
 ();
 
-1422 
+1423 
 	`£rvîLog
 (
 LL_WARNING
 ,
 
-1424 
+1425 
 	`°ªº‹
 (
 î∫o
 ));
 
-1425 
+1426 
 	`aofClo£Pùes
 ();
 
-1426  
+1427  
 C_ERR
 ;
 
-1428 
+1429 
 	`£rvîLog
 (
 LL_NOTICE
 ,
 
-1429 "Backgroundáµíd o∆y fûêªwrôög sèπed byÖid %d",
+1430 "Backgroundáµíd o∆y fûêªwrôög sèπed byÖid %d",
 chûdpid
 );
 
-1430 
+1431 
 £rvî
 .
 aof_ªwrôe_scheduÀd
  = 0;
 
-1431 
+1432 
 £rvî
 .
 aof_ªwrôe_time_°¨t
@@ -315853,7 +315827,7 @@ aof_ªwrôe_time_°¨t
 NULL
 );
 
-1432 
+1433 
 £rvî
 .
 aof_chûd_pid
@@ -315861,33 +315835,33 @@ aof_chûd_pid
 chûdpid
 ;
 
-1433 
+1434 
 	`upd©eDi˘ResizePﬁicy
 ();
 
-1438 
+1439 
 £rvî
 .
 aof_£À˘ed_db
  = -1;
 
-1439 
+1440 
 	`ª∂iˇti⁄S¸ùtCacheFlush
 ();
 
-1440  
+1441  
 C_OK
 ;
 
-1442  
+1443  
 C_OK
 ;
 
-1443 
+1444 
 	}
 }
 
-1445 
+1446 
 	$bgªwrôóofComm™d
 (
 ˛õ¡
@@ -315895,49 +315869,49 @@ C_OK
 c
 ) {
 
-1446 i‡(
+1447 i‡(
 £rvî
 .
 aof_chûd_pid
  != -1) {
 
-1447 
+1448 
 	`addRïlyEº‹
 (
 c
 ,"Backgroundáppend only fileÑewritingálready inÖrogress");
 
-1448 } i‡(
+1449 } i‡(
 £rvî
 .
 rdb_chûd_pid
  != -1) {
 
-1449 
+1450 
 £rvî
 .
 aof_ªwrôe_scheduÀd
  = 1;
 
-1450 
+1451 
 	`addRïlySètus
 (
 c
 ,"Backgroundáppend only fileÑewriting scheduled");
 
-1451 } i‡(
+1452 } i‡(
 	`ªwrôeAµídO∆yFûeBackground
 (Ë=
 C_OK
 ) {
 
-1452 
+1453 
 	`addRïlySètus
 (
 c
 ,"Backgroundáppend only fileÑewriting started");
 
-1454 
+1455 
 	`addRïly
 (
 c
@@ -315947,11 +315921,11 @@ sh¨ed
 îr
 );
 
-1456 
+1457 
 	}
 }
 
-1458 
+1459 
 	$aofRemoveTempFûe
 (
 pid_t
@@ -315959,11 +315933,11 @@ pid_t
 chûdpid
 ) {
 
-1459 
+1460 
 tmpfûe
 [256];
 
-1461 
+1462 
 	`¢¥ötf
 (
 tmpfûe
@@ -315971,39 +315945,39 @@ tmpfûe
 chûdpid
 );
 
-1462 
+1463 
 	`u∆ök
 (
 tmpfûe
 );
 
-1463 
+1464 
 	}
 }
 
-1469 
+1470 
 	$aofUpd©eCuºítSize
 () {
 
-1470 
+1471 
 ªdis_°©
  
 sb
 ;
 
-1471 
+1472 
 m°ime_t
  
 œãncy
 ;
 
-1473 
+1474 
 	`œãncySèπM⁄ô‹
 (
 œãncy
 );
 
-1474 i‡(
+1475 i‡(
 	`ªdis_f°©
 (
 £rvî
@@ -316013,19 +315987,19 @@ aof_fd
 sb
 ) == -1) {
 
-1475 
+1476 
 	`£rvîLog
 (
 LL_WARNING
 ,"UnableÅo obtainÅhe AOF fileÜength. stat: %s",
 
-1476 
+1477 
 	`°ªº‹
 (
 î∫o
 ));
 
-1478 
+1479 
 £rvî
 .
 aof_cuºít_size
@@ -316035,23 +316009,23 @@ sb
 °_size
 ;
 
-1480 
+1481 
 	`œãncyEndM⁄ô‹
 (
 œãncy
 );
 
-1481 
+1482 
 	`œãncyAddSam∂eIfNìded
 ("aof-f°©",
 œãncy
 );
 
-1482 
+1483 
 	}
 }
 
-1486 
+1487 
 	$backgroundRewrôeD⁄eH™dÀr
 (
 exôcode
@@ -316059,147 +316033,147 @@ exôcode
 bysig«l
 ) {
 
-1487 i‡(!
+1488 i‡(!
 bysig«l
  && 
 exôcode
  == 0) {
 
-1488 
+1489 
 √wfd
 , 
 ﬁdfd
 ;
 
-1489 
+1490 
 tmpfûe
 [256];
 
-1490 
+1491 
 now
  = 
 	`u°ime
 ();
 
-1491 
+1492 
 m°ime_t
  
 œãncy
 ;
 
-1493 
+1494 
 	`£rvîLog
 (
 LL_NOTICE
 ,
 
-1498 
+1499 
 	`œãncySèπM⁄ô‹
 (
 œãncy
 );
 
-1499 
+1500 
 	`¢¥ötf
 (
 tmpfûe
 ,256,"temp-rewriteaof-bg-%d.aof",
 
-1500 ()
+1501 ()
 £rvî
 .
 aof_chûd_pid
 );
 
-1501 
+1502 
 √wfd
  = 
 	`›í
 (
 tmpfûe
 ,
-O_WRONLY
+O_RDWR
 |
 O_APPEND
 );
 
-1502 i‡(
+1503 i‡(
 √wfd
  == -1) {
 
-1503 
+1504 
 	`£rvîLog
 (
 LL_WARNING
 ,
 
-1504 "U«bÀÅÿ›íÅhêãmp‹¨y AOFÖrodu˚d byÅhêchûd: %s", 
+1505 "U«bÀÅÿ›íÅhêãmp‹¨y AOFÖrodu˚d byÅhêchûd: %s", 
 	`°ªº‹
 (
 î∫o
 ));
 
-1505 
+1506 
 ˛ónup
 ;
 
-1508 i‡(
+1509 i‡(
 	`aofRewrôeBuf„rWrôe
 (
 √wfd
 ) == -1) {
 
-1509 
+1510 
 	`£rvîLog
 (
 LL_WARNING
 ,
 
-1510 "Eº‹ÅryögÅÿÊushÅhê∑ª¡ dif‡tÿthêªwrôã¿AOF: %s", 
+1511 "Eº‹ÅryögÅÿÊushÅhê∑ª¡ dif‡tÿthêªwrôã¿AOF: %s", 
 	`°ªº‹
 (
 î∫o
 ));
 
-1511 
+1512 
 	`˛o£
 (
 √wfd
 );
 
-1512 
+1513 
 ˛ónup
 ;
 
-1514 
+1515 
 	`œãncyEndM⁄ô‹
 (
 œãncy
 );
 
-1515 
+1516 
 	`œãncyAddSam∂eIfNìded
 ("aof-ªwrôe-diff-wrôe",
 œãncy
 );
 
-1517 
+1518 
 	`£rvîLog
 (
 LL_NOTICE
 ,
 
-1518 "ResiduÆÖ¨íàdif‡suc˚ssfuŒy flushedÅÿthêªwrôã¿AOF (%.2‡MB)", (Ë
+1519 "ResiduÆÖ¨íàdif‡suc˚ssfuŒy flushedÅÿthêªwrôã¿AOF (%.2‡MB)", (Ë
 	`aofRewrôeBuf„rSize
 () / (1024*1024));
 
-1547 i‡(
+1548 i‡(
 £rvî
 .
 aof_fd
  == -1) {
 
-1553 
+1554 
 ﬁdfd
  = 
 	`›í
@@ -316213,17 +316187,17 @@ O_RDONLY
 O_NONBLOCK
 );
 
-1556 
+1557 
 ﬁdfd
  = -1;
 
-1561 
+1562 
 	`œãncySèπM⁄ô‹
 (
 œãncy
 );
 
-1562 i‡(
+1563 i‡(
 	`ª«me
 (
 tmpfûe
@@ -316233,69 +316207,69 @@ tmpfûe
 aof_fûíame
 ) == -1) {
 
-1563 
+1564 
 	`£rvîLog
 (
 LL_WARNING
 ,
 
-1565 
+1566 
 tmpfûe
 ,
 
-1566 
+1567 
 £rvî
 .
 aof_fûíame
 ,
 
-1567 
+1568 
 	`°ªº‹
 (
 î∫o
 ));
 
-1568 
+1569 
 	`˛o£
 (
 √wfd
 );
 
-1569 i‡(
+1570 i‡(
 ﬁdfd
  !-1Ë
 	`˛o£
 (oldfd);
 
-1570 
+1571 
 ˛ónup
 ;
 
-1572 
+1573 
 	`œãncyEndM⁄ô‹
 (
 œãncy
 );
 
-1573 
+1574 
 	`œãncyAddSam∂eIfNìded
 ("aof-ª«me",
 œãncy
 );
 
-1575 i‡(
+1576 i‡(
 £rvî
 .
 aof_fd
  == -1) {
 
-1578 
+1579 
 	`˛o£
 (
 √wfd
 );
 
-1581 
+1582 
 ﬁdfd
  = 
 £rvî
@@ -316303,7 +316277,7 @@ aof_fd
 aof_fd
 ;
 
-1582 
+1583 
 £rvî
 .
 aof_fd
@@ -316311,7 +316285,7 @@ aof_fd
 √wfd
 ;
 
-1583 i‡(
+1584 i‡(
 £rvî
 .
 aof_fsync
@@ -316319,13 +316293,13 @@ aof_fsync
 AOF_FSYNC_ALWAYS
 )
 
-1584 
+1585 
 	`aof_fsync
 (
 √wfd
 );
 
-1585 i‡(
+1586 i‡(
 £rvî
 .
 aof_fsync
@@ -316333,23 +316307,23 @@ aof_fsync
 AOF_FSYNC_EVERYSEC
 )
 
-1586 
+1587 
 	`aof_background_fsync
 (
 √wfd
 );
 
-1587 
+1588 
 £rvî
 .
 aof_£À˘ed_db
  = -1;
 
-1588 
+1589 
 	`aofUpd©eCuºítSize
 ();
 
-1589 
+1590 
 £rvî
 .
 aof_ªwrôe_ba£_size
@@ -316357,7 +316331,7 @@ aof_ªwrôe_ba£_size
 aof_cuºít_size
 ;
 
-1593 
+1594 
 	`sds‰ì
 (
 £rvî
@@ -316365,7 +316339,7 @@ aof_cuºít_size
 aof_buf
 );
 
-1594 
+1595 
 £rvî
 .
 aof_buf
@@ -316373,7 +316347,7 @@ aof_buf
 	`sd£m±y
 ();
 
-1597 
+1598 
 £rvî
 .
 aof_œ°bgªwrôe_°©us
@@ -316381,13 +316355,13 @@ aof_œ°bgªwrôe_°©us
 C_OK
 ;
 
-1599 
+1600 
 	`£rvîLog
 (
 LL_NOTICE
 , "Background AOFÑewrite finished successfully");
 
-1601 i‡(
+1602 i‡(
 £rvî
 .
 aof_°©e
@@ -316395,7 +316369,7 @@ aof_°©e
 AOF_WAIT_REWRITE
 )
 
-1602 
+1603 
 £rvî
 .
 aof_°©e
@@ -316403,7 +316377,7 @@ aof_°©e
 AOF_ON
 ;
 
-1605 i‡(
+1606 i‡(
 ﬁdfd
  !-1Ë
 	`bioCª©eBackgroundJob
@@ -316413,45 +316387,31 @@ BIO_CLOSE_FILE
 NULL
 ,NULL);
 
-1607 
+1608 
 	`£rvîLog
 (
 LL_VERBOSE
 ,
 
-1608 "Background AOFÑewrôêsig«»h™dÀ∏took %Œdus", 
+1609 "Background AOFÑewrôêsig«»h™dÀ∏took %Œdus", 
 	`u°ime
 ()-
 now
 );
 
-1609 } i‡(!
+1610 } i‡(!
 bysig«l
  && 
 exôcode
  != 0) {
 
-1612 i‡(
+1613 i‡(
 bysig«l
  !
 SIGUSR1
 )
 
-1613 
-£rvî
-.
-aof_œ°bgªwrôe_°©us
- = 
-C_ERR
-;
-
 1614 
-	`£rvîLog
-(
-LL_WARNING
-,
-
-1617 
 £rvî
 .
 aof_œ°bgªwrôe_°©us
@@ -316459,29 +316419,43 @@ aof_œ°bgªwrôe_°©us
 C_ERR
 ;
 
-1619 
+1615 
 	`£rvîLog
 (
 LL_WARNING
 ,
 
-1620 "Background AOFÑewrôêãrmö©ed by sig«»%d", 
+1618 
+£rvî
+.
+aof_œ°bgªwrôe_°©us
+ = 
+C_ERR
+;
+
+1620 
+	`£rvîLog
+(
+LL_WARNING
+,
+
+1621 "Background AOFÑewrôêãrmö©ed by sig«»%d", 
 bysig«l
 );
 
-1623 
+1624 
 ˛ónup
 :
 
-1624 
+1625 
 	`aofClo£Pùes
 ();
 
-1625 
+1626 
 	`aofRewrôeBuf„rRe£t
 ();
 
-1626 
+1627 
 	`aofRemoveTempFûe
 (
 £rvî
@@ -316489,13 +316463,13 @@ bysig«l
 aof_chûd_pid
 );
 
-1627 
+1628 
 £rvî
 .
 aof_chûd_pid
  = -1;
 
-1628 
+1629 
 £rvî
 .
 aof_ªwrôe_time_œ°
@@ -316507,13 +316481,13 @@ NULL
 aof_ªwrôe_time_°¨t
 ;
 
-1629 
+1630 
 £rvî
 .
 aof_ªwrôe_time_°¨t
  = -1;
 
-1631 i‡(
+1632 i‡(
 £rvî
 .
 aof_°©e
@@ -316521,13 +316495,13 @@ aof_°©e
 AOF_WAIT_REWRITE
 )
 
-1632 
+1633 
 £rvî
 .
 aof_ªwrôe_scheduÀd
  = 1;
 
-1633 
+1634 
 	}
 }
 
@@ -491033,19 +491007,19 @@ buûdid
 
 1 
 	#REDIS_GIT_SHA1
- "00000000"
+ "8e090dad"
 
 	)
 
 2 
 	#REDIS_GIT_DIRTY
- "0"
+ "4196869"
 
 	)
 
 3 
 	#REDIS_BUILD_ID
- "pu√-lom-1528893542"
+ "pu√-lom-1534523339"
 
 	)
 

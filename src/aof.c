@@ -1198,7 +1198,7 @@ int rewriteAppendOnlyFile(char *filename) {
     /* Note that we have to use a different temp name here compared to the
      * one used by rewriteAppendOnlyFileBackground() function. */
     snprintf(tmpfile,256,"temp-rewriteaof-%d.aof", (int) getpid());
-    fp = fopen(tmpfile,"w+");
+    fp = fopen(tmpfile,"w");
     if (!fp) {
         serverLog(LL_WARNING, "Opening the temp file for AOF rewrite in rewriteAppendOnlyFile(): %s", strerror(errno));
         return C_ERR;
@@ -1223,7 +1223,7 @@ int rewriteAppendOnlyFile(char *filename) {
 
     /* Do an initial slow fsync here while the parent is still sending
      * data, in order to make the next final fsync faster. */
-    //printf("%s: doing fflush and fsync on fd = %d\n", __func__, fileno(fp));
+    printf("%s: doing fflush and fsync on fd = %d, pid = %lu\n", __func__, fileno(fp), getpid());
     if (fflush(fp) == EOF) goto werr;
     if (fsync(fileno(fp)) == -1) goto werr;
     //printf("%s: did fsync on fd = %d\n", __func__, fileno(fp));
@@ -1390,6 +1390,7 @@ int rewriteAppendOnlyFileBackground(void) {
     if (aofCreatePipes() != C_OK) return C_ERR;
     openChildInfoPipe();
     start = ustime();
+    printf("%s: calling fork with pid = %lu\n", __func__, getpid());
     if ((childpid = fork()) == 0) {
         char tmpfile[256];
 
